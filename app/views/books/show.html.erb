@@ -1,2 +1,15 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<!-- h1>Books#show</h1> -->
+<!-- <p>Find me in app/views/books/show.html.erb</p> -->
+
+<div>
+  <%= flash[:notice] %>
+</div>
+
+<h5>Title<h5>
+  <p><%= @book.title %></p>
+
+<h5>Body</h5>
+  <p><%= @book.body %></p>
+  
+<%= link_to "Update Book", edit_book_path(@book.id) %>
+<%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "Are you sure？" %>
