@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   #'booka'に設定
   #試し　get 'books/:id' => 'books#show', as: 'booka'
   #as: 'edit_book'にすると、他の設定と干渉するため、'edit_bookb'に設定
-  #試し　get 'books/:id/edit' => 'books#edit', as: 'edit_bookb'
+  #試し　get 'books/:id/edit' => 'books#edit', as: 'edit_book'
   #試し　patch 'books/:id' => 'books#update', as: 'update_book'
   delete 'books/:id' => 'books#destroy', as: 'destroy_book'
 end

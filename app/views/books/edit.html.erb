@@ -16,10 +16,14 @@
 
   <h4>Title</h4>
   <%= f.text_field :title %>
-  
+
   <h4>Body</h4>
   <%= f.text_area :body %>
-  
+
   <%= f.submit 'Update Book' %>
-  
+
 <% end %>
+
+<!-- Showのリンク修正要? -->
+  <%= link_to "Show", book_path(@book.id) %>
+  <a href="/books">Back</a>
