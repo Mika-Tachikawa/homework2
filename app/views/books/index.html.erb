@@ -4,46 +4,55 @@
 </div>
 
 <!-- 投稿一覧のタイトル -->
-<h1>Books</h1>
+<h1>Bookers</h1>
 
+<table border="0">
+    <tr>
 <!-- 本のタイトル -->
-  <p>Title</p>
-
+      <th>Title</th>
 <!-- 本の内容 -->
-  <p>Body</p>
-
+      <th>Body</th>
+    </tr>
 <!-- 投稿内容を全て(books)表示させる -->
 <!-- eachでレコード分の処理を繰り返す -->
-<% @books.each do |book| %>
-
+  <% @books.each do |book| %>
+        <tr>
 <!-- 本のタイトルをレコード分繰り返す -->
-  <span>
-    <%= link_to book.title%>
-  </span>
-  
-<!-- 本の内容をレコード分繰り返す -->
-  <span>
-    <%= link_to book.body%>
-  </span>
-  
+        <td>
+          <span>
+            <%= link_to book.title%>
+          </span>
+        </td>
+<!-- 本の内容をレコード分繰り返す -->  
+        <td>
+          <span>
+            <%= link_to book.body%>
+          </span>
+        </td>
 <!-- showのリンクをレコード分繰り返す -->
-　<span>
+        <td>
+           <span>
 <!-- showのリンクを付与 -->
-　  <%= link_to "Show", book_path(book.id) %>
-　 </span>
-
+            <%= link_to "Show", book_path(book.id) %>
+           </span>
+         </td>
 <!-- Editのリンクをレコード分繰り返す -->
-　<span>
+        <td>
+          <span>
 <!-- Editのリンクを付与 -->
-　  <%= link_to "Edit", edit_book_path(book.id) %>
-　</span>
-
+           <%= link_to "Edit", edit_book_path(book.id) %>
+          </span>
+        </td>
 <!-- Destroyのリンクをレコード分繰り返す -->
-　<span>
-　  <%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "Are you sure？" %>
-　</span>
+        <td>
+          <span>
+            <%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "Are you sure？" %>
+          </span>
+        </td>
+      </tr>
 
 <% end %>
+</table>
 
 
 
