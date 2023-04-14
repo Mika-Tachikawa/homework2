@@ -1,83 +1,83 @@
 <!-- 削除完了のサクセスメッセージを呼び出す -->
-<div>
-  <%= flash[:notice3] %>
-</div>
 
+  <div class="notice">
+    <%= flash[:notice3] %>
+  </div>
+
+<body class="body-i">
 <!-- 投稿一覧のタイトル -->
-<h1>Bookers</h1>
+  <h1><strong>Books</strong></h1>
 
-<table border="0">
-    <tr>
+  <table border="0">
+      <tr>
 <!-- 本のタイトル -->
-      <th>Title</th>
+        <th class="th"><strong>Title</strong></th>
 <!-- 本の内容 -->
-      <th>Body</th>
-    </tr>
+        <th class="th"><strong>Body</strong></th>
+      </tr>
 <!-- 投稿内容を全て(books)表示させる -->
 <!-- eachでレコード分の処理を繰り返す -->
-  <% @books.each do |book| %>
-        <tr>
+    <% @books.each do |book| %>
+          <tr>
 <!-- 本のタイトルをレコード分繰り返す -->
-        <td>
-          <span>
-            <%= link_to book.title%>
-          </span>
-        </td>
+          <td class="td">
+            <span><%= book.title %></span>
+          </td>
 <!-- 本の内容をレコード分繰り返す -->  
-        <td>
-          <span>
-            <%= link_to book.body%>
-          </span>
-        </td>
+          <td class="td">
+            <span><%= book.body %></span>
+          </td>
 <!-- showのリンクをレコード分繰り返す -->
-        <td>
-           <span>
+          <td class="td">
+             <span>
 <!-- showのリンクを付与 -->
-            <%= link_to "Show", book_path(book.id) %>
-           </span>
-         </td>
+              <%= link_to "Show", book_path(book.id) %>
+             </span>
+           </td>
 <!-- Editのリンクをレコード分繰り返す -->
-        <td>
-          <span>
+          <td class="td">
+            <span>
 <!-- Editのリンクを付与 -->
-           <%= link_to "Edit", edit_book_path(book.id) %>
-          </span>
-        </td>
+             <%= link_to "Edit", edit_book_path(book.id) %>
+            </span>
+          </td>
 <!-- Destroyのリンクをレコード分繰り返す -->
-        <td>
-          <span>
-            <%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "Are you sure？" %>
-          </span>
-        </td>
-      </tr>
+          <td class="td">
+            <span>
+              <%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "Are you sure？" %>
+            </span>
+          </td>
+        </tr>
 
-<% end %>
-</table>
+    <% end %>
+    </table>
+  </div>
 
 
 
 <!-- 投稿と一覧が同じページに表示されるようにするため、下記を貼り付け -->
-<h1>New book</h1>
+  <h2><strong>New book</strong></h2>
 
-<% if @book.errors.any? %>
-  <%= @book.errors.count %>errors prohibited this book from being saved:
-  <ul>
-    <% @book.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
+  <% if @book.errors.any? %>
+    <%= @book.errors.count %>errors prohibited this book from being saved:
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
 
 
 <!-- form_with部分 -->
-<%= form_with model: @book, url: '/books', method: :post do |f| %>
+  <%= form_with model: @book, url: '/books', method: :post do |f| %>
 
-  <h4>Title</h4>
-  <%= f.text_field :title %>
+    <p class="box1">Title</p>
+    <p class="box2"><%= f.text_field :title %></p>
+    
+    <p class="box1">Body</p>
+    <p class="box2"><%= f.text_area :body %></p>
 	
-  <h4>Body</h4>
-  <%= f.text_area :body %>
-	
-  <%= f.submit 'Create Book' %>
+    <p><%= f.submit 'Create Book' %></p>
   
-<% end %>
+  <% end %>
+</body>
